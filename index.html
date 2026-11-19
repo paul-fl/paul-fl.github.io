@@ -1,1 +1,176 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paul Florescu</title>
+<meta name="description" content="Paul Florescu: physicist working on radiation detectors, simulation and machine learning for physics data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --ink:#16181d; --ink-2:#4a4f5a; --ink-3:#7b808b;
+  --line:#e4e4e0; --accent:#2a63d6; --accent-soft:#e8effc; --tag:#f0f0ec;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --surface:#171a20; --ink:#eceef2; --ink-2:#b4b9c3; --ink-3:#848a96;
+    --line:#262a32; --accent:#7aa7ff; --accent-soft:#1b2640; --tag:#21252d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a20; --ink:#eceef2; --ink-2:#b4b9c3; --ink-3:#848a96;
+  --line:#262a32; --accent:#7aa7ff; --accent-soft:#1b2640; --tag:#21252d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+nav a{color:var(--ink-2);margin-left:20px;font-size:14px}
+nav a:hover{color:var(--ink);text-decoration:none}
+.toggle{margin-left:20px;background:none;border:1px solid var(--line);color:var(--ink-2);border-radius:8px;padding:4px 9px;cursor:pointer;font:inherit;font-size:13px}
+.hero{padding:72px 0 40px}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent);letter-spacing:.02em}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.08;letter-spacing:-.03em;margin:10px 0 18px}
+.lead{font-size:19px;color:var(--ink-2);max-width:640px;margin:0}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:500;font-size:14px}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:13px;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:500;margin:0 0 22px}
+.focus{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:16px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--ink-2);font-size:14.5px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.project{display:flex;flex-direction:column;transition:border-color .15s}
+.project:hover{border-color:var(--accent);text-decoration:none}
+.project .meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.project h3{color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:12px;background:var(--tag);color:var(--ink-2);padding:3px 9px;border-radius:999px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.timeline li:last-child{border-bottom:none}
+.when{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink-3);padding-top:2px}
+.timeline h3{margin:0;font-size:16px}
+.timeline p{margin:2px 0 0;color:var(--ink-2);font-size:14.5px}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.skills .tag{font-size:13.5px;padding:6px 12px;background:var(--surface);border:1px solid var(--line)}
+footer{padding:30px 0 50px;color:var(--ink-3);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:720px){
+  nav a:not(.keep){display:none}
+  .focus,.projects{grid-template-columns:1fr}
+  .timeline li{grid-template-columns:1fr;gap:2px}
+  .hero{padding:48px 0 28px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Paul Florescu</a>
+    <div>
+      <nav>
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </div>
+    <button class="toggle" id="toggle" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="eyebrow">// physicist · detectors · simulation · ML</div>
+    <h1>Building instruments that measure radiation, and the software that makes sense of it.</h1>
+    <p class="lead">PhD researcher at the Surrey Space Centre, developing compact Cherenkov detectors for space radiation. MSci Physics, Imperial College London. Previously on COMET at KEK and a dark-sector CNN search in MicroBooNE data.</p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/paul-fl">GitHub</a>
+      <a class="btn" href="#projects">See projects</a>
+    </div>
+  </div>
+
+  <section id="focus">
+    <h2>What I work on</h2>
+    <div class="focus">
+      <div class="card"><h3>Radiation detectors</h3><p>Cherenkov and scintillator detectors read out with SiPMs, from lab tests to a balloon-flight prototype.</p></div>
+      <div class="card"><h3>Simulation</h3><p>Geant4 and ESA's GRAS for detector response, optical photon transport and benchmarking against measurements.</p></div>
+      <div class="card"><h3>Machine learning</h3><p>CNNs for classifying particle interactions in liquid-argon TPC images, with interpretability studies.</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected projects</h2>
+    <div class="projects">
+      <a class="card project" href="https://github.com/paul-fl/MicroBooNE_DarkTrident_CNN">
+        <div class="meta">MSci project · Imperial · 2025–26</div>
+        <h3>Dark trident CNN for MicroBooNE</h3>
+        <p>Multiclass CNN separating dark-matter interactions from neutrino and cosmic backgrounds in LArTPC images, with occlusion analysis and a GPU-cluster pipeline.</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">CNN</span><span class="tag">LArTPC</span><span class="tag">HPC</span></div>
+      </a>
+      <a class="card project" href="https://github.com/paul-fl/LYSOSimulation">
+        <div class="meta">KEK, Japan · 2024</div>
+        <h3>LYSO scintillator simulation</h3>
+        <p>Geant4 model of a LYSO crystal with optical physics, recording energy deposited by muons to ROOT.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Geant4</span><span class="tag">ROOT</span></div>
+      </a>
+      <a class="card project" href="https://github.com/paul-fl/MicroprocessorsProject">
+        <div class="meta">Imperial · 2024</div>
+        <h3>Guitar-tuner spectrum analyser</h3>
+        <p>Firmware in PIC assembly: ADC sampling, frequency analysis and an LCD and keypad interface.</p>
+        <div class="tags"><span class="tag">Assembly</span><span class="tag">Embedded</span><span class="tag">Signal processing</span></div>
+      </a>
+      <a class="card project" href="https://github.com/paul-fl/Y3ComputationalProject">
+        <div class="meta">Imperial · 2024</div>
+        <h3>Discovering the Higgs boson</h3>
+        <p>Numerical integration, differentiation and optimisation written from scratch to maximise a signal significance.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Numerical methods</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li><div class="when">2026 –</div><div><h3>PhD researcher, Surrey Space Centre</h3><p>Compact Cherenkov detectors for space radiation: SiPM readout, GRAS/Geant4 simulation, balloon-flight prototype.</p></div></li>
+      <li><div class="when">2022 – 2026</div><div><h3>MSci Physics, Imperial College London</h3><p>Master's project: CNN classification for a dark-sector search in MicroBooNE data.</p></div></li>
+      <li><div class="when">2024</div><div><h3>COMET experiment, KEK (Japan)</h3><p>Scintillator and photodetector work, data acquisition and Geant4 simulation.</p></div></li>
+      <li><div class="when">UROP</div><div><h3>MAGIC CubeSat magnetometer, Imperial</h3><p>Geant4 radiation simulations, OMERE and calibration software; co-author on an EGU 2026 contribution.</p></div></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">NumPy / pandas</span><span class="tag">C++</span><span class="tag">Geant4</span><span class="tag">GRAS</span><span class="tag">ROOT</span><span class="tag">SiPMs &amp; scintillators</span><span class="tag">DAQ</span><span class="tag">Linux / HPC</span><span class="tag">Git</span><span class="tag">PIC assembly</span><span class="tag">LaTeX</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Paul Florescu · <a href="https://github.com/paul-fl">github.com/paul-fl</a></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, key="theme";
+  try{var s=localStorage.getItem(key); if(s) root.setAttribute("data-theme",s);}catch(e){}
+  document.getElementById("toggle").addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+    var next=cur==="dark"?"light":"dark"; root.setAttribute("data-theme",next);
+    try{localStorage.setItem(key,next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
